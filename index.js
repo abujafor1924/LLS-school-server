@@ -37,6 +37,9 @@ async function run() {
     const userCollection = client.db("dataStores").collection("user");
     const addCollection = client.db("dataStores").collection("addData");
     const enrollCollection = client.db("dataStores").collection("enrollData");
+    const enrollcomplitedCollection = client
+      .db("dataStores")
+      .collection("enrollcomplited");
 
     //     User Collection
     app.get("/users", async (req, res) => {
@@ -164,8 +167,9 @@ async function run() {
 
     app.delete("/enroll/:id", async (req, res) => {
       const id = req.params.id;
-      console.log(id);
+      // console.log(id);
       const query = { _id: new ObjectId(id) };
+      console.log(query);
       const result = await enrollCollection.deleteOne(query);
       res.send(result);
     });
@@ -184,6 +188,20 @@ async function run() {
       res.send({
         clientSecret: paymentIntent.client_secret,
       });
+    });
+
+    // enroll ment  section
+
+    app.get("/enrollcomplited", async (req, res) => {
+      const result = await enrollCollection.find().toArray();
+      res.send(result);
+    });
+
+    app.post("/enrollcomplited", async (req, res) => {
+      const item = req.body;
+      // console.log(item);
+      const result = await enrollcomplitedCollection.insertOne(item);
+      res.send(result);
     });
 
     await client.db("admin").command({ ping: 1 });
