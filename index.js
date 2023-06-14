@@ -178,7 +178,7 @@ async function run() {
     app.post("/create-payment-intent", async (req, res) => {
       const { price } = req.body;
       const amount = price * 100;
-      console.log(price, amount);
+      // console.log(price, amount);
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amount,
         currency: "usd",
@@ -199,7 +199,7 @@ async function run() {
 
     app.post("/enrollcomplited", async (req, res) => {
       const item = req.body;
-      // console.log(item);
+      console.log(item);
       const result = await enrollcomplitedCollection.insertOne(item);
       res.send(result);
     });
