@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello Assingment-12");
+  res.send("Hello Assingment-12 and last assingment");
 });
 
 const uri =
