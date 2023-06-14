@@ -192,10 +192,10 @@ async function run() {
 
     // enroll ment  section
 
-    app.get("/enrollcomplited", async (req, res) => {
-      const result = await enrollCollection.find().toArray();
-      res.send(result);
-    });
+    // app.get("/enrollcomplited", async (req, res) => {
+    //   const result = await enrollCollection.find().toArray();
+    //   res.send(result);
+    // });
 
     app.post("/enrollcomplited", async (req, res) => {
       const item = req.body;
