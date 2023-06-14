@@ -11,8 +11,7 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-// langCliub
-// wNOkxXt2zRQLJNc1
+
 app.get("/", (req, res) => {
   res.send("Hello Assingment-12");
 });
