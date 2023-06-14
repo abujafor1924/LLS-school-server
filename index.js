@@ -199,7 +199,7 @@ async function run() {
 
     app.post("/enrollcomplited", async (req, res) => {
       const item = req.body;
-      console.log(item);
+      // console.log(item);
       const result = await enrollcomplitedCollection.insertOne(item);
       res.send(result);
     });
