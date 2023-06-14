@@ -196,12 +196,12 @@ async function run() {
     //   res.send(result);
     // });
 
-    app.post("/enrollcomplited", async (req, res) => {
-      const item = req.body;
-      // console.log(item);
-      const result = await enrollcomplitedCollection.insertOne(item);
-      res.send(result);
-    });
+    // app.post("/enrollcomplited", async (req, res) => {
+    //   const item = req.body;
+    //   // console.log(item);
+    //   const result = await enrollcomplitedCollection.insertOne(item);
+    //   res.send(result);
+    // });
 
     await client.db("admin").command({ ping: 1 });
     console.log(
