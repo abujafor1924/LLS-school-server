@@ -153,6 +153,15 @@ async function run() {
     // student class section
 
     app.get("/enroll", async (req, res) => {
+      // const email = req.query.email;
+      // console.log(email);
+
+      // // if (!email) {
+      // //   res.send([]);
+      // // }
+
+      // const query = { email: email };
+      // console.log(query);
       const result = await enrollCollection.find().toArray();
       res.send(result);
     });
